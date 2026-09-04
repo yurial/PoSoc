@@ -248,11 +248,11 @@
 
 <a id="glos-sync-queue"></a>
 
-- **Sync queue** — исходящий буфер ретрансляции ([ARCH-2.2](concept/02_architecture.md#arch-2.2)).
+- **Sync queue** — исходящий буфер ретрансляции ([ARCH-2.2-impl](implementation/04_node_transport.md#arch-2.2-impl)).
 
 <a id="glos-anti-entropy"></a>
 
-- **Anti-entropy** — периодическая сверка множеств записей; подавляет цензуру и потери ([ARCH-2.2.3](concept/02_architecture.md#arch-2.2.3)).
+- **Anti-entropy** — периодическая сверка множеств записей ([ARCH-2.2.3-impl](implementation/04_node_transport.md#arch-2.2.3-impl)); подавляет цензуру и потери ([ARCH-2.2.3](concept/02_architecture.md#arch-2.2.3)).
 
 <a id="glos-mandatory-zone"></a>
 

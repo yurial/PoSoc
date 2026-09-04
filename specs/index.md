@@ -23,6 +23,7 @@
 - [01_records_formats.md](implementation/01_records_formats.md) - Канонизация и форматы записей (норматив)
 - [02_crypto.md](implementation/02_crypto.md) - Криптография и объёмы
 - [03_reference_implementations.md](implementation/03_reference_implementations.md) - Эталонные реализации
+- [04_node_transport.md](implementation/04_node_transport.md) - Транспорт и узловая инженерия (implementation-дополнение к ARCH-2.2/2.5)
 
 ### Прочее
 
