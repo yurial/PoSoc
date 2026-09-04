@@ -26,4 +26,4 @@
 
 ### Прочее
 
-- [13_glossary.md](13_glossary.md) - GLOSSARY
+- [glossary.md](glossary.md) - GLOSSARY
