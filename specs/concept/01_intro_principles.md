@@ -86,4 +86,4 @@
 
 <a id="prin-1.3.4"></a>
 
-**Негарантии:** многоличность ([LIM-10.2](10_limitations.md#lim-10.2)); сговор выше порогов ([LIM-10.5](10_limitations.md#lim-10.5)); приватность ([ZKP-11](11_privacy_zkp.md#zkp-11)); мгновенная глобальная согласованность ([ARCH-2.5](02_architecture.md#arch-2.5)); гарантированная доставка ([LIM-10.9](10_limitations.md#lim-10.9)–[LIM-10.10](10_limitations.md#lim-10.10)).
+**Негарантии:** многоличность ([LIM-10.2](10_limitations.md#lim-10.2)); сговор выше порогов ([LIM-10.5](10_limitations.md#lim-10.5)); приватность ([ZKP-11](11_privacy_zkp.md#zkp-11)); мгновенная глобальная согласованность ([ARCH-2.5](../implementation/04_node_transport.md#arch-2.5)); гарантированная доставка ([LIM-10.9](10_limitations.md#lim-10.9)–[LIM-10.10](10_limitations.md#lim-10.10)).

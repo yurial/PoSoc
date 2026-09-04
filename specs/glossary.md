@@ -244,7 +244,7 @@
 
 <a id="glos-neighbor"></a>
 
-- **Neighbor** — узел с активной LINK; транспорт совпадает с графом доверения ([ARCH-2.2.1](concept/02_architecture.md#arch-2.2.1)).
+- **Neighbor** — узел с активной LINK; транспорт совпадает с графом доверения ([ARCH-2.2.1](implementation/04_node_transport.md#arch-2.2.1)).
 
 <a id="glos-sync-queue"></a>
 
@@ -252,7 +252,7 @@
 
 <a id="glos-anti-entropy"></a>
 
-- **Anti-entropy** — периодическая сверка множеств записей ([ARCH-2.2.3-impl](implementation/04_node_transport.md#arch-2.2.3-impl)); подавляет цензуру и потери ([ARCH-2.2.3](concept/02_architecture.md#arch-2.2.3)).
+- **Anti-entropy** — периодическая сверка множеств записей ([ARCH-2.2.3-impl](implementation/04_node_transport.md#arch-2.2.3-impl)); подавляет цензуру и потери ([ARCH-2.2.3](implementation/04_node_transport.md#arch-2.2.3)).
 
 <a id="glos-mandatory-zone"></a>
 
