@@ -74,7 +74,7 @@
 
 <a id="prin-1.3.3-b"></a>
 
-- *Isolation:* declarations без внешних живых связей не создают edges (disjoint count, [HIER-5.4](05_hierarchy.md#hier-5.4)); транспортная изоляция дублирует структурную ([ARCH-2.2](#arch-2.2)).
+- *Isolation:* declarations без внешних живых связей не создают edges (disjoint count, [HIER-5.4](05_hierarchy.md#hier-5.4)); транспортная изоляция дублирует структурную ([ARCH-2.2](02_architecture.md#arch-2.2)).
 
 <a id="prin-1.3.3-c"></a>
 
@@ -86,4 +86,4 @@
 
 <a id="prin-1.3.4"></a>
 
-**Негарантии:** многоличность ([LIM-10.2](10_limitations.md#lim-10.2)); сговор выше порогов ([LIM-10.5](10_limitations.md#lim-10.5)); приватность ([ZKP-11](11_privacy_zkp.md#zkp-11)); мгновенная глобальная согласованность ([ARCH-2.5](#arch-2.5)); гарантированная доставка ([LIM-10.9](10_limitations.md#lim-10.9)–[LIM-10.10](10_limitations.md#lim-10.10)).
+**Негарантии:** многоличность ([LIM-10.2](10_limitations.md#lim-10.2)); сговор выше порогов ([LIM-10.5](10_limitations.md#lim-10.5)); приватность ([ZKP-11](11_privacy_zkp.md#zkp-11)); мгновенная глобальная согласованность ([ARCH-2.5](02_architecture.md#arch-2.5)); гарантированная доставка ([LIM-10.9](10_limitations.md#lim-10.9)–[LIM-10.10](10_limitations.md#lim-10.10)).
