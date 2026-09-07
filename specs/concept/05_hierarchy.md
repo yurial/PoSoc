@@ -6,22 +6,22 @@
 
 <a id="hier-5.1"></a>
 
-Явные акты — связи, membership в L0, declarations. Edges, levels, валидность — выводимое состояние, перевычисляемое непрерывно.
+Явные акты — связи и членство (`MEMBER_OF`) в группах L0 и сообществах. Edges, levels, валидность — выводимое состояние, перевычисляемое непрерывно.
 
-### 5.2 Declarations
+### 5.2 Заявления о членстве (`MEMBER_OF`)
 
 <a id="hier-5.2"></a>
 
-1. <a id="hier-5.2.1"></a>**`DECLARE(P,H)`** — подписанное $P$ утверждение «поддерживаю принадлежность сообществ, где я состою, к $H$»: голос в C1-quorum **каждого** $X$ с $P \in R_{str}(X)$. TTL $T_{life}$, тихо автопродлевается (rate-limit [ARCH-2.6.3](02_architecture.md#arch-2.6.3)). Одна declaration голосует во всех соответствующих quorum — один человек, одно согласие; disjoint count по уникальным pk исключает двойной счёт.
-2. <a id="hier-5.2.2"></a>**`DECLARE_REVOKE(P,H)`** — мгновенный односторонний отзыв (лёгкое возражение): живость declaration обрезается в $t_{sign}$; quorum падает → edge отрывается мгновенно. Осцилляция REVOKE↔DECLARE самонаказуема (отрыв мгновенный, возврат — через $T_{hold}$).
-3. <a id="hier-5.2.3"></a>**Адрес группы** $ID_H$ ([FMT-2.8](../implementation/01_records_formats.md#fmt-2.8)); имя — не identity ([LIM-10.1](10_limitations.md#lim-10.1)); identity сообщества — структура.
-4. <a id="hier-5.2.4"></a>**Isolate** — группа без живых детей: $R_{str} = \varnothing$, адрес не хранится сетью (владелец хранит), бутстрапится ([HIER-5.5](#hier-5.5)). Declarations посторонних не хранятся ([ARCH-2.6.1](02_architecture.md#arch-2.6.1), [ARCH-2.4.9](02_architecture.md#arch-2.4.9)).
+1. <a id="hier-5.2.1"></a>**`MEMBER_OF(P, H)`** — та же запись членства, что и в L0, для сообщества-вершины иерархии ($ID_H$): подписанное $P$ утверждение «P member of H» («я состою в $H$»). Живые `MEMBER_OF(P, H)` образуют $R_{decl}(H)$; каждый — голос в C1-quorum **каждого** ребра $X \to H$ с $P \in R_{str}(X)$. TTL $T_{life}$, тихо автопродлевается (rate-limit [ARCH-2.6.3](02_architecture.md#arch-2.6.3)). Один `MEMBER_OF` голосует во всех соответствующих quorum — один человек, одно согласие; disjoint count по уникальным pk исключает двойной счёт.
+2. <a id="hier-5.2.2"></a>**`MEMBER_OF_REVOKE(P, H)`** — мгновенный односторонний отзыв (лёгкое возражение): живость `MEMBER_OF` обрезается в $t_{sign}$; quorum падает → edge отрывается мгновенно. Осцилляция REVOKE↔`MEMBER_OF` самонаказуема (отрыв мгновенный, возврат — через $T_{hold}$).
+3. <a id="hier-5.2.3"></a>**Адрес группы** $ID_H$ ([FMT-2.8](../implementation/01_records_formats.md#fmt-2.8)); имя — не identity ([LIM-10.1](10_limitations.md#lim-10.1)); identity сообщества — структура. Различение сценариев членства — по типу ID группы: $ID_G$ — базовая группа L0 ([L0-4](04_l0.md#l0-4)), $ID_H$ — сообщество иерархии.
+4. <a id="hier-5.2.4"></a>**Isolate** — группа без живых детей: $R_{str} = \varnothing$, адрес не хранится сетью (владелец хранит), бутстрапится ([HIER-5.5](#hier-5.5)). `MEMBER_OF(P, H)` от ключей $P$ вне живых $R_{str}$ к $H$ не хранятся ([ARCH-2.6.1](02_architecture.md#arch-2.6.1), [ARCH-2.4.9](02_architecture.md#arch-2.4.9)).
 
 ### 5.3 Rosters
 
 <a id="hier-5.3"></a>
 
-1. <a id="hier-5.3.1"></a>$R_{decl}(H)$ — участники с живыми declarations: заявления, **не носители доверия, в порогах не участвуют**.
+1. <a id="hier-5.3.1"></a>$R_{decl}(H)$ — участники с живыми `MEMBER_OF(P, H)`: заявления, **не носители доверия, в порогах не участвуют**.
 2. <a id="hier-5.3.2"></a>$R_{str}(H) = \bigcup_{C \in \mathrm{children}(H)} R_{str}(C)$ по уникальным pk; для L0 — активный roster [L0-4](04_l0.md#l0-4); isolate — $\varnothing$.
 3. <a id="hier-5.3.3"></a>Участник «в иерархии» ⟺ состоит в валидной L0, транзитивно привязанной к доверенному компоненту.
 4. <a id="hier-5.3.4"></a>Разделение ростеров исключает циркулярность.
@@ -52,7 +52,7 @@ $$t_{big} = \min\big(|big|,\ \max(\lfloor f \cdot |big| \rfloor,\ \kappa) + 1\bi
 
 **Edge $X \to H$ жив на $\tau$ ⟺ непрерывно:**
 
-- <a id="hier-5.5.3"></a>**C1 (consent):** ≥ $\lfloor |X|/2 \rfloor + 1$ участников $R_{str}(X)$ имеют живые declarations в $H$;
+- <a id="hier-5.5.3"></a>**C1 (consent):** ≥ $\lfloor |X|/2 \rfloor + 1$ участников $R_{str}(X)$ имеют живые `MEMBER_OF(P, H)`;
 - <a id="hier-5.5.4"></a>**C2 (corroboration, all-pairs):** для **каждого** живого ребёнка $Y \in \mathrm{children}(H) \setminus \{X\}$ пара $(X,Y)$ проходит;
 - <a id="hier-5.5.5"></a>**C3 (acyclicity):** не существует пути $H \Rightarrow^* X$ по живым рёбрам.
 
@@ -88,15 +88,15 @@ $$t_{big} = \min\big(|big|,\ \max(\lfloor f \cdot |big| \rfloor,\ \kappa) + 1\bi
 
 <a id="hier-5.7"></a>
 
-1. <a id="hier-5.7.1"></a>**Лёгкое** — `DECLARE_REVOKE`: quorum C1 падает, edge отрывается мгновенно.
+1. <a id="hier-5.7.1"></a>**Лёгкое** — `MEMBER_OF_REVOKE`: quorum C1 падает, edge отрывается мгновенно.
 2. <a id="hier-5.7.2"></a>**Тяжёлое** — `FRIEND_REVOKE` ([LINK-3.2](03_links.md#link-3.2)).
-3. <a id="hier-5.7.3"></a>**Выход группы из родителя** — массовый `DECLARE_REVOKE` членов $X$; отдельного события нет.
+3. <a id="hier-5.7.3"></a>**Выход группы из родителя** — массовый `MEMBER_OF_REVOKE` членов $X$; отдельного события нет.
 
 ### 5.8 Изоляция ботов
 
 <a id="hier-5.8"></a>
 
-Declarations permissionless, но: quorum L0 контролируются людьми; isolate имеет пустой $R_{str}$; disjoint count исключает co-membership; каждая пара на пути бот-поддерева в человеческую иерархию требует живых человеческих связей с TTL ≤ $T_{life}$. Одиночные edges (free groups) обхода не открывают: соединяющее ребро встречает сестёр (self-healing — оторванное от людей поддерево теряет корроборацию не позже $T_{life}$).
+`MEMBER_OF` permissionless, но: quorum L0 контролируются людьми; isolate имеет пустой $R_{str}$; disjoint count исключает co-membership; каждая пара на пути бот-поддерева в человеческую иерархию требует живых человеческих связей с TTL ≤ $T_{life}$. Одиночные edges (free groups) обхода не открывают: соединяющее ребро встречает сестёр (self-healing — оторванное от людей поддерево теряет корроборацию не позже $T_{life}$).
 
 ### 5.9 Мотивация связей
 

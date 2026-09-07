@@ -11,7 +11,7 @@
 | $T_f$ (freeze роли ребёнка) | 14 сут.; триггеры: `L0_GENESIS`, bootstrap-активация; параллелен hold window; активация в $\max(\cdot)$ |
 | Detach | мгновенный (провал C1 или любой пары — оба edge); пересчёт полный |
 | L0 | $4 \le |M_{act}| \le 30$; cap-30: счёт подтверждений → $t_{sign}$ → pk; quorum и cohesion $\lfloor |M|/2 \rfloor + 1$; **growth priority**; synchronous rounds; quench < 4 |
-| C1 | $\lfloor |X|/2 \rfloor + 1$ живых declarations от $R_{str}(X)$ |
+| C1 | $\lfloor |X|/2 \rfloor + 1$ живых `MEMBER_OF(P, H)` от $R_{str}(X)$ |
 | C2 | **all-pairs** со всеми живыми сёстрами |
 | C3 | acyclicity (путь $H \Rightarrow^* X$ не существует) |
 | Bootstrap | $S$: ≥2, все пары внутри $S$; окно на фиксированном $S$; выбор: inclusion-maximal → ранний старт → лексикографический минимум |
@@ -19,9 +19,9 @@
 | Подсчёт корроборации | disjoint, во внешнюю часть |
 | Poison | $T_{life}/(1+N)$; ≤1 mark на пару-направление, ≤2 на пару; кламп mark в базовое окно instance |
 | Конфликты | LWW: max $t_{sign}$; замещение только при строго большем; равные → меньший $H(\mathrm{record})$; **growth > incumbency; fresher > staler** |
-| Капы на ключ | 16 само-членств MEMBER_OF; 32 DECLARE; подтверждения — только от активных членов (правило подсчёта) |
+| Капы на ключ | ≤ 128 живых MEMBER_OF (суммарно: L0-членства и заявления в сообщества; сверх — 128 с наибольшими $t_{sign}$, тай-брейк по $H$); FRIEND и MEMBER_OF_REVOKE — без капа; подтверждения — только от текущих членов (правило подсчёта) |
 | GC | пара: $t_{last}+2T_{life}$; объекты: до конца TTL |
-| `KEY_REVOKE` | эффект мгновенный; живость — до истечения TTL самой долгоживущей записи ключа на момент $t_{sign}$ отзыва ([ARCH-2.3.2](02_architecture.md#arch-2.3.2)) |
+| `KEY_LOSS` | эффект мгновенный; живость — до истечения TTL самой долгоживущей записи ключа на момент $t_{sign}$ отзыва ([ARCH-2.3.2](02_architecture.md#arch-2.3.2)) |
 | Подписи / хеши | выбор примитивов — implementation: [CRYPTO-8](../implementation/02_crypto.md#crypto-8) |
 | Ожидаемая глубина $D$ | 7–10 (ширина вершины 5–10) |
 

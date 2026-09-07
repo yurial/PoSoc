@@ -6,7 +6,7 @@
 
 <a id="glos-consent-object"></a>
 
-- **Consent object** — TTL-запись с автопродлением и мгновенным revoke; три типа: `FRIEND`, `MEMBER_OF`, `DECLARE` ([ARCH-2.3](concept/02_architecture.md#arch-2.3)).
+- **Consent object** — TTL-запись с автопродлением и мгновенным revoke; два типа: `FRIEND`, `MEMBER_OF` ([ARCH-2.3](concept/02_architecture.md#arch-2.3)).
 
 <a id="glos-action"></a>
 
@@ -24,25 +24,17 @@
 
 - **`FRIEND_REVOKE`** — односторонний разрыв: terminирует instance, создаёт poison mark против контрагента ([LINK-3.2](concept/03_links.md#link-3.2)).
 
-<a id="glos-key-revoke"></a>
+<a id="glos-key-loss"></a>
 
-- **`KEY_REVOKE`** — отзыв (смерть) ключа: action, подписант — сам ключ; все consent-записи ключа невалидны от $t_{sign}$, новые невалидны по умолчанию; без poison marks и штрафов ([ARCH-2.3.2](concept/02_architecture.md#arch-2.3.2)).
+- **`KEY_LOSS`** — отзыв (смерть) ключа: action, подписант — сам ключ; все consent-записи ключа невалидны от $t_{sign}$, новые невалидны по умолчанию; без poison marks и штрафов ([ARCH-2.3.2](concept/02_architecture.md#arch-2.3.2)).
 
 <a id="glos-member-of"></a>
 
-- **`MEMBER_OF(X,G)`** — подтверждение членства «X member of G»: подписант = $X$ — само-членство; подписант ≠ $X$ — подтверждение другого ([L0-4.2](concept/04_l0.md#l0-4.2)).
+- **`MEMBER_OF(X,G)`** — подтверждение членства «X member of G»: подписант = $X$ — само-членство (для сообществ $ID_H$ — заявление о членстве, голос в C1-quorum); подписант ≠ $X$ — подтверждение другого ([L0-4.2](concept/04_l0.md#l0-4.2), [HIER-5.2](concept/05_hierarchy.md#hier-5.2)).
 
 <a id="glos-member-of-revoke"></a>
 
-- **`MEMBER_OF_REVOKE(X,G)`** — отзыв подтверждения членства: подписант $X$ — выход; подписант-подтверждающий — отзыв своего подтверждения; quorum отзывов = исключение ([L0-4.2](concept/04_l0.md#l0-4.2)).
-
-<a id="glos-member-of-batch"></a>
-
-- **`MEMBER_OF_BATCH(G,[X…])`** — пакет подтверждений членства одним подписантом ([L0-4.2](concept/04_l0.md#l0-4.2)).
-
-<a id="glos-declare"></a>
-
-- **`DECLARE` / `DECLARE_REVOKE`** — голос в C1-quorum / мгновенный отзыв (лёгкое возражение) ([HIER-5.2](concept/05_hierarchy.md#hier-5.2)).
+- **`MEMBER_OF_REVOKE(X,G)`** — отзыв подтверждения членства: подписант $X$ — выход (для сообществ — отзыв заявления); подписант-подтверждающий — отзыв своего подтверждения; quorum отзывов = исключение ([L0-4.2](concept/04_l0.md#l0-4.2), [HIER-5.2](concept/05_hierarchy.md#hier-5.2)).
 
 <a id="glos-l0-genesis"></a>
 
@@ -80,7 +72,7 @@
 
 <a id="glos-re-publish"></a>
 
-- **Re-publish** — повторная публикация живых declarations при изменении membership-статуса ([ARCH-2.4.9](concept/02_architecture.md#arch-2.4.9)).
+- **Re-publish** — повторная публикация живых `MEMBER_OF` при изменении membership-статуса ([ARCH-2.4.9](concept/02_architecture.md#arch-2.4.9)).
 
 **Links**
 
@@ -194,7 +186,7 @@
 
 <a id="glos-c1"></a>
 
-- **C1** — quorum живых declarations ([HIER-5.5](concept/05_hierarchy.md#hier-5.5)).
+- **C1** — quorum живых `MEMBER_OF(P, H)` ([HIER-5.5](concept/05_hierarchy.md#hier-5.5)).
 
 <a id="glos-c2"></a>
 
@@ -230,7 +222,7 @@
 
 <a id="glos-r-str"></a>
 
-- **$R_{str}$ / $R_{decl}$** — структурный roster (союз живых детей; задаёт численности) / roster заявлений (не носитель доверия) ([HIER-5.3](concept/05_hierarchy.md#hier-5.3)).
+- **$R_{str}$ / $R_{decl}$** — структурный roster (союз живых детей; задаёт численности) / roster заявлений `MEMBER_OF(P, H)` (не носитель доверия) ([HIER-5.3](concept/05_hierarchy.md#hier-5.3)).
 
 <a id="glos-level"></a>
 
