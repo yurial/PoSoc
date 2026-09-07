@@ -39,7 +39,7 @@
 
 Нормативная таблица payload'ов и подписантов всех типов записей — в [01_records_formats.md](../specs/implementation/01_records_formats.md#fmt-2.8); семантика каждого типа (что запись означает и на что влияет) — в концепции ([posoc-concept.md](posoc-concept.md), норматив — [02_architecture.md](../specs/concept/02_architecture.md#arch-2.3)). Канонизационные правила (сортировка ключей, лексикографический порядок пар, доменное разделение хеша по тегам типов, tie-break по $H(\mathrm{record})$) — [FMT-2.7](../specs/implementation/01_records_formats.md#fmt-2.7).
 
-Идентификаторы групп вычисляются из содержимого, без реестра: $ID_G = H(\texttt{"L0"} \Vert \text{descriptor} \Vert pk_{initiator} \Vert t_{sign})$ для базовых групп; $ID_H = H(\texttt{"GROUP"} \Vert \text{descriptor} \Vert pk_{founder})$ для сообществ, где founder — pk первой по $t_{sign}$ записи `MEMBER_OF` с `group: ID_H` (техническая роль без привилегий).
+Идентификаторы групп вычисляются из содержимого, без реестра: $ID_G = H(\texttt{"L0"} \Vert \text{descriptor} \Vert pk_{initiator} \Vert t_{sign})$ для базовых групп; $ID_{GH} = H(\texttt{"GROUP"} \Vert \text{descriptor} \Vert pk_{founder})$ для сообществ, где founder — pk первой по $t_{sign}$ записи `MEMBER_OF` с `group: ID_GH` (техническая роль без привилегий).
 
 **`KEY_LOSS`.** Payload — `{memo?: bstr ≤ 256}`; единственный подписант — сам отзываемый ключ (`sigs = [self]`): payload идентифицирующих полей не содержит, отзываемый ключ определяется подписью. Смысл записи — смерть ключа: все записи ключа невалидны от момента отзыва, экземпляр на ключ один, отзыв безвозвратен (семантика — в концепции: [posoc-concept.md](posoc-concept.md), «Связи»; норматив — [ARCH-2.3.2](../specs/concept/02_architecture.md#arch-2.3.2)).
 

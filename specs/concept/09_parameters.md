@@ -11,9 +11,9 @@
 | $T_f$ (freeze роли ребёнка) | 14 сут.; триггеры: `L0_GENESIS`, bootstrap-активация; параллелен hold window; активация в $\max(\cdot)$ |
 | Detach | мгновенный (провал C1 или любой пары — оба edge); пересчёт полный |
 | L0 | $4 \le |M_{act}| \le 30$; cap-30: счёт подтверждений → $t_{sign}$ → pk; quorum и cohesion $\lfloor |M|/2 \rfloor + 1$; **growth priority**; synchronous rounds; quench < 4 |
-| C1 | $\lfloor |X|/2 \rfloor + 1$ живых `MEMBER_OF(P, H)` от $R_{str}(X)$ |
+| C1 | $\lfloor |G|/2 \rfloor + 1$ живых `MEMBER_OF(P, GH)` от $R_{str}(G)$ |
 | C2 | **all-pairs** со всеми живыми сёстрами |
-| C3 | acyclicity (путь $H \Rightarrow^* X$ не существует) |
+| C3 | acyclicity (путь $GH \Rightarrow^* G$ не существует) |
 | Bootstrap | $S$: ≥2, все пары внутри $S$; окно на фиксированном $S$; выбор: inclusion-maximal → ранний старт → лексикографический минимум |
 | Пороги пар | $f$: $f(m{<}30)=0.5$; $b_1=1.5$, $m^*=10^4$, $b_2=4$, $f_\infty=0.05$; $c=0.25$; $\kappa=\min(\lfloor m/2.5 \rfloor, 4500)$; $\gamma{=}1$ при $\rho \ge 1+4(1-f)$ |
 | Подсчёт корроборации | disjoint, во внешнюю часть |
@@ -44,8 +44,8 @@
 |---|---|
 | Bootstrap L1: две L0(30) | quorum 16/30 и 16/30; пара 16 ↔ 16 |
 | Bootstrap L1: три L0(30) | попарно по 16 |
-| Attach L0(30) к H = {L0(30), L0(30)} | quorum 16/30; пары 16↔16 с каждым ребёнком |
+| Attach L0(30) к GH = {L0(30), L0(30)} | quorum 16/30; пары 16↔16 с каждым ребёнком |
 | L0(30) ↔ L0(60) | 22 из 30 (73%) и 29 из 60 (48%) |
 | L0(4) ↔ L0(8) | 4 из 4 и 5 из 8 |
 | L0(4) ↔ L0(30) | 4 из 4 (единогласно) и 16 из 30 |
-| Co-membership: две L0(30) с 10 общими, перекрёстные связи только через общих | $U_{X \Rightarrow Y} = U_{Y \Rightarrow X} = 10 < t = 16$: пара не проходит (disjointness) |
+| Co-membership: две L0(30) с 10 общими, перекрёстные связи только через общих | $U_{G_1 \Rightarrow G_2} = U_{G_2 \Rightarrow G_1} = 10 < t = 16$: пара не проходит (disjointness) |

@@ -30,7 +30,7 @@
 
 <a id="glos-member-of"></a>
 
-- **`MEMBER_OF(X,G)`** — подтверждение членства «X member of G»: подписант = $X$ — само-членство (для сообществ $ID_H$ — заявление о членстве, голос в C1-quorum); подписант ≠ $X$ — подтверждение другого ([L0-4.2](concept/04_l0.md#l0-4.2), [HIER-5.2](concept/05_hierarchy.md#hier-5.2)).
+- **`MEMBER_OF(X,G)`** — подтверждение членства «X member of G»: подписант = $X$ — само-членство (для сообществ $ID_{GH}$ — заявление о членстве, голос в C1-quorum); подписант ≠ $X$ — подтверждение другого ([L0-4.2](concept/04_l0.md#l0-4.2), [HIER-5.2](concept/05_hierarchy.md#hier-5.2)).
 
 <a id="glos-member-of-revoke"></a>
 
@@ -106,11 +106,11 @@
 
 <a id="glos-n-x"></a>
 
-- **$N_x$** — число активных marks против $x$; $N_x \le \deg(x)$ ([LINK-3.2](concept/03_links.md#link-3.2)).
+- **$N_X$** — число активных marks против $X$; $N_X \le \deg(X)$ ([LINK-3.2](concept/03_links.md#link-3.2)).
 
 <a id="glos-window-decay"></a>
 
-- **Window / decay** — $W = T_{life}/(1+N_X+N_P)$; $d(\ell)$ — момент распада; необратимость — относительно текущего множества записей ([LINK-3.3](concept/03_links.md#link-3.3)).
+- **Window / decay** — $W = T_{life}/(1+N_P+N_O)$; $d(\ell)$ — момент распада; необратимость — относительно текущего множества записей ([LINK-3.3](concept/03_links.md#link-3.3)).
 
 <a id="glos-truce"></a>
 
@@ -182,11 +182,11 @@
 
 <a id="glos-edge"></a>
 
-- **Edge / child / parent / sister** — привязка $X \to H$; X — child, H — parent; другие дети H — sisters ([HIER-5.5](concept/05_hierarchy.md#hier-5.5)).
+- **Edge / child / parent / sister** — привязка $G \to GH$; $G$ — child, $GH$ — parent; другие дети $GH$ — sisters ([HIER-5.5](concept/05_hierarchy.md#hier-5.5)).
 
 <a id="glos-c1"></a>
 
-- **C1** — quorum живых `MEMBER_OF(P, H)` ([HIER-5.5](concept/05_hierarchy.md#hier-5.5)).
+- **C1** — quorum живых `MEMBER_OF(P, GH)` ([HIER-5.5](concept/05_hierarchy.md#hier-5.5)).
 
 <a id="glos-c2"></a>
 
@@ -222,7 +222,7 @@
 
 <a id="glos-r-str"></a>
 
-- **$R_{str}$ / $R_{decl}$** — структурный roster (союз живых детей; задаёт численности) / roster заявлений `MEMBER_OF(P, H)` (не носитель доверия) ([HIER-5.3](concept/05_hierarchy.md#hier-5.3)).
+- **$R_{str}$ / $R_{decl}$** — структурный roster (союз живых детей; задаёт численности) / roster заявлений `MEMBER_OF(P, GH)` (не носитель доверия) ([HIER-5.3](concept/05_hierarchy.md#hier-5.3)).
 
 <a id="glos-level"></a>
 
