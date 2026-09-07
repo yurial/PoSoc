@@ -21,6 +21,7 @@
 | Конфликты | LWW: max $t_{sign}$; замещение только при строго большем; равные → меньший $H(\mathrm{record})$; **growth > incumbency; fresher > staler** |
 | Капы на ключ | 16 SELF_CONF; 32 DECLARE; vouch — только от активных членов (правило подсчёта) |
 | GC | пара: $t_{last}+2T_{life}$; объекты: до конца TTL |
+| `KEY_REVOKE` | эффект мгновенный; живость — до истечения TTL самой долгоживущей записи ключа на момент $t_{sign}$ отзыва ([ARCH-2.3.2](02_architecture.md#arch-2.3.2)) |
 | Подписи / хеши | выбор примитивов — implementation: [CRYPTO-8](../implementation/02_crypto.md#crypto-8) |
 | Ожидаемая глубина $D$ | 7–10 (ширина вершины 5–10) |
 

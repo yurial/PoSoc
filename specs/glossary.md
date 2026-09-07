@@ -24,6 +24,10 @@
 
 - **`LINK_REVOKE`** — односторонний разрыв: terminирует instance, создаёт poison mark против контрагента ([LINK-3.2](concept/03_links.md#link-3.2)).
 
+<a id="glos-key-revoke"></a>
+
+- **`KEY_REVOKE`** — отзыв (смерть) ключа: action, подписант — сам ключ; все consent-записи ключа невалидны от $t_{sign}$, новые невалидны по умолчанию; без poison marks и штрафов ([ARCH-2.3.2](concept/02_architecture.md#arch-2.3.2)).
+
 <a id="glos-self-conf"></a>
 
 - **`SELF_CONF` / `SELF_CONF_REVOKE`** — само-подтверждение членства в L0 / его отзыв (выход) ([L0-4.2](concept/04_l0.md#l0-4.2)).

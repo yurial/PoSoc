@@ -19,5 +19,6 @@ Record = `{type, t_sign, payload, sigs}`; sigs — массив `{pk, sig}`, **�
 | `VOUCH_BATCH` | `{group: ID_G, voucher: pk, members: [pk; ≤30]}` | `[voucher]` |
 | `DECLARE` / `DECLARE_REVOKE` | `{group: ID_H, declarant: pk}` | `[declarant]` |
 | `L0_GENESIS` | `{descriptor: tstr ≤ 128, initiator: pk}` | `[initiator]` |
+| `KEY_REVOKE` | `{memo?: bstr ≤ 256}` | `[self]` |
 
-Идентификаторы: $ID_G = H(\texttt{"L0"} \Vert \text{descriptor} \Vert pk_{initiator} \Vert t_{sign})$; $ID_H = H(\texttt{"GROUP"} \Vert \text{descriptor} \Vert pk_{founder})$, founder — pk первой (по $t_{sign}$) `DECLARE` (техническая роль без привилегий). Доменное разделение BLAKE3 — по тегам типов; tie-break $H(\mathrm{record})$ — от полных канонических байтов.
+Идентификаторы: $ID_G = H(\texttt{"L0"} \Vert \text{descriptor} \Vert pk_{initiator} \Vert t_{sign})$; $ID_H = H(\texttt{"GROUP"} \Vert \text{descriptor} \Vert pk_{founder})$, founder — pk первой (по $t_{sign}$) `DECLARE` (техническая роль без привилегий). Доменное разделение BLAKE3 — по тегам типов; tie-break $H(\mathrm{record})$ — от полных канонических байтов. Для `KEY_REVOKE` отзываемый ключ — единственный подписант (`self`); payload идентифицирующих полей не содержит ([ARCH-2.3.2](../concept/02_architecture.md#arch-2.3.2)).
