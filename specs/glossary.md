@@ -6,7 +6,7 @@
 
 <a id="glos-consent-object"></a>
 
-- **Consent object** — TTL-запись с автопродлением и мгновенным revoke; четыре типа: `LINK`, `SELF_CONF`, `VOUCH`, `DECLARE` ([ARCH-2.3](concept/02_architecture.md#arch-2.3)).
+- **Consent object** — TTL-запись с автопродлением и мгновенным revoke; четыре типа: `FRIEND`, `SELF_CONF`, `VOUCH`, `DECLARE` ([ARCH-2.3](concept/02_architecture.md#arch-2.3)).
 
 <a id="glos-action"></a>
 
@@ -16,13 +16,13 @@
 
 - **`X_REVOKE`** — паттерн именования: action, отзывающий consent object типа X; подписант revoke совпадает с подписантом объекта ([ARCH-2.3](concept/02_architecture.md#arch-2.3)).
 
-<a id="glos-link"></a>
+<a id="glos-friend"></a>
 
-- **`LINK`** — consent object пары ключей; обе подписи ([LINK-3.1](concept/03_links.md#link-3.1)).
+- **`FRIEND`** — consent object пары ключей; обе подписи ([LINK-3.1](concept/03_links.md#link-3.1)).
 
-<a id="glos-link-revoke"></a>
+<a id="glos-friend-revoke"></a>
 
-- **`LINK_REVOKE`** — односторонний разрыв: terminирует instance, создаёт poison mark против контрагента ([LINK-3.2](concept/03_links.md#link-3.2)).
+- **`FRIEND_REVOKE`** — односторонний разрыв: terminирует instance, создаёт poison mark против контрагента ([LINK-3.2](concept/03_links.md#link-3.2)).
 
 <a id="glos-key-revoke"></a>
 
@@ -82,11 +82,11 @@
 
 <a id="glos-instance"></a>
 
-- **Instance** — текущий `LINK` пары; замещается более свежим ([LINK-3.1](concept/03_links.md#link-3.1)).
+- **Instance** — текущий `FRIEND` пары; замещается более свежим ([LINK-3.1](concept/03_links.md#link-3.1)).
 
 <a id="glos-binding"></a>
 
-- **Binding** — привязка `LINK_REVOKE` к последнему instance с $t_c \le t_{sign}$ ([LINK-3.2.2](concept/03_links.md#link-3.2.2)).
+- **Binding** — привязка `FRIEND_REVOKE` к последнему instance с $t_c \le t_{sign}$ ([LINK-3.2.2](concept/03_links.md#link-3.2.2)).
 
 <a id="glos-winning-revoke"></a>
 
@@ -114,11 +114,11 @@
 
 <a id="glos-window-decay"></a>
 
-- **Window / decay** — $W = T_{life}/(1+N_u+N_v)$; $d(\ell)$ — момент распада; необратимость — относительно текущего множества записей ([LINK-3.3](concept/03_links.md#link-3.3)).
+- **Window / decay** — $W = T_{life}/(1+N_X+N_P)$; $d(\ell)$ — момент распада; необратимость — относительно текущего множества записей ([LINK-3.3](concept/03_links.md#link-3.3)).
 
 <a id="glos-truce"></a>
 
-- **Truce** — свежий `LINK` пары: усекает marks обоих направлений, расширяет окна выживающих связей ([LINK-3.2](concept/03_links.md#link-3.2), св. 3).
+- **Truce** — свежий `FRIEND` пары: усекает marks обоих направлений, расширяет окна выживающих связей ([LINK-3.2](concept/03_links.md#link-3.2), св. 3).
 
 <a id="glos-gc-horizon"></a>
 
@@ -248,7 +248,7 @@
 
 <a id="glos-neighbor"></a>
 
-- **Neighbor** — узел с активной LINK; транспорт совпадает с графом доверения ([ARCH-2.2.1](implementation/04_node_transport.md#arch-2.2.1)).
+- **Neighbor** — узел с активной FRIEND; транспорт совпадает с графом доверения ([ARCH-2.2.1](implementation/04_node_transport.md#arch-2.2.1)).
 
 <a id="glos-sync-queue"></a>
 

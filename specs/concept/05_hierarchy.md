@@ -89,7 +89,7 @@ $$t_{big} = \min\big(|big|,\ \max(\lfloor f \cdot |big| \rfloor,\ \kappa) + 1\bi
 <a id="hier-5.7"></a>
 
 1. <a id="hier-5.7.1"></a>**Лёгкое** — `DECLARE_REVOKE`: quorum C1 падает, edge отрывается мгновенно.
-2. <a id="hier-5.7.2"></a>**Тяжёлое** — `LINK_REVOKE` ([LINK-3.2](03_links.md#link-3.2)).
+2. <a id="hier-5.7.2"></a>**Тяжёлое** — `FRIEND_REVOKE` ([LINK-3.2](03_links.md#link-3.2)).
 3. <a id="hier-5.7.3"></a>**Выход группы из родителя** — массовый `DECLARE_REVOKE` членов $X$; отдельного события нет.
 
 ### 5.8 Изоляция ботов

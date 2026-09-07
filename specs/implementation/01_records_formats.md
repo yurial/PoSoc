@@ -12,8 +12,8 @@ Record = `{type, t_sign, payload, sigs}`; sigs — массив `{pk, sig}`, **�
 
 | type | payload | sigs |
 |---|---|---|
-| `LINK` | `{u: pk, v: pk}` ($u < v$) | `[u, v]` |
-| `LINK_REVOKE` | `{from: pk, to: pk, memo?: bstr ≤ 256}` | `[from]` |
+| `FRIEND` | `{x: pk, p: pk}` ($x < p$) | `[x, p]` |
+| `FRIEND_REVOKE` | `{x: pk, p: pk, memo?: bstr ≤ 256}` (X→P) | `[x]` |
 | `SELF_CONF` / `SELF_CONF_REVOKE` | `{group: ID_G, member: pk}` | `[member]` |
 | `VOUCH` / `VOUCH_REVOKE` | `{group: ID_G, voucher: pk, member: pk}` | `[voucher]` |
 | `VOUCH_BATCH` | `{group: ID_G, voucher: pk, members: [pk; ≤30]}` | `[voucher]` |
