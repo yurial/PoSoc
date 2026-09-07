@@ -8,7 +8,7 @@
 
 <a id="arch-2.1.1"></a>
 
-1. Личность — пара ключей $(x, pk)$, Ed25519 ([CRYPTO-8](../implementation/02_crypto.md#crypto-8)). Секрет не публикуется.
+1. Личность — пара ключей $(x, pk)$ (подписывающий секрет $x$ не публикуется; конкретная схема подписи — деталь реализации, [CRYPTO-8](../implementation/02_crypto.md#crypto-8)).
 
 <a id="arch-2.1.2"></a>
 
@@ -40,7 +40,7 @@
 
 <a id="arch-2.3"></a>
 
-Канонический CBOR ([FMT-2.7](../implementation/01_records_formats.md#fmt-2.7)); $t_{sign}$ входит в подписываемую полезную нагрузку. Два класса: **consent objects** (TTL, автопродление, revoke) и **actions** (мгновенный эффект).
+Записи канонизируются детерминированной сериализацией ([FMT-2.7](../implementation/01_records_formats.md#fmt-2.7)); $t_{sign}$ входит в подписываемую полезную нагрузку. Два класса: **consent objects** (TTL, автопродление, revoke) и **actions** (мгновенный эффект).
 
 | Record | Signers | Класс | Эффект |
 |---|---|---|---|

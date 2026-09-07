@@ -21,7 +21,7 @@
 | Конфликты | LWW: max $t_{sign}$; замещение только при строго большем; равные → меньший $H(\mathrm{record})$; **growth > incumbency; fresher > staler** |
 | Капы на ключ | 16 SELF_CONF; 32 DECLARE; vouch — только от активных членов (правило подсчёта) |
 | GC | пара: $t_{last}+2T_{life}$; объекты: до конца TTL |
-| Подписи / хеши | Ed25519 / BLAKE3 |
+| Подписи / хеши | выбор примитивов — implementation: [CRYPTO-8](../implementation/02_crypto.md#crypto-8) |
 | Ожидаемая глубина $D$ | 7–10 (ширина вершины 5–10) |
 
 **Справочные пороги равных пар** ($t = \min(m, \max(\lfloor f(m)\,m \rfloor, \kappa(m)) + 1)$):
