@@ -6,7 +6,7 @@
 
 <a id="glos-consent-object"></a>
 
-- **Consent object** — TTL-запись с автопродлением и мгновенным revoke; четыре типа: `LINK`, `SELF_CONF`, `VOUCH`, `DECLARE` ([ARCH-2.3](concept/02_architecture.md#arch-2.3)).
+- **Consent object** — TTL-запись с автопродлением и мгновенным revoke; три типа: `LINK`, `MEMBER_OF`, `DECLARE` ([ARCH-2.3](concept/02_architecture.md#arch-2.3)).
 
 <a id="glos-action"></a>
 
@@ -28,13 +28,17 @@
 
 - **`KEY_REVOKE`** — отзыв (смерть) ключа: action, подписант — сам ключ; все consent-записи ключа невалидны от $t_{sign}$, новые невалидны по умолчанию; без poison marks и штрафов ([ARCH-2.3.2](concept/02_architecture.md#arch-2.3.2)).
 
-<a id="glos-self-conf"></a>
+<a id="glos-member-of"></a>
 
-- **`SELF_CONF` / `SELF_CONF_REVOKE`** — само-подтверждение членства в L0 / его отзыв (выход) ([L0-4.2](concept/04_l0.md#l0-4.2)).
+- **`MEMBER_OF(X,G)`** — подтверждение членства «X member of G»: подписант = $X$ — само-членство; подписант ≠ $X$ — подтверждение другого ([L0-4.2](concept/04_l0.md#l0-4.2)).
 
-<a id="glos-vouch"></a>
+<a id="glos-member-of-revoke"></a>
 
-- **`VOUCH` / `VOUCH_BATCH` / `VOUCH_REVOKE`** — поручительство члена за кандидата / пакет / отзыв; quorum отзывов = исключение ([L0-4.2](concept/04_l0.md#l0-4.2)).
+- **`MEMBER_OF_REVOKE(X,G)`** — отзыв подтверждения членства: подписант $X$ — выход; подписант-подтверждающий — отзыв своего подтверждения; quorum отзывов = исключение ([L0-4.2](concept/04_l0.md#l0-4.2)).
+
+<a id="glos-member-of-batch"></a>
+
+- **`MEMBER_OF_BATCH(G,[X…])`** — пакет подтверждений членства одним подписантом ([L0-4.2](concept/04_l0.md#l0-4.2)).
 
 <a id="glos-declare"></a>
 
@@ -128,7 +132,7 @@
 
 <a id="glos-candidate"></a>
 
-- **Candidate** — ключ с живой `SELF_CONF` ([L0-4.3.1](concept/04_l0.md#l0-4.3.1)).
+- **Candidate** — ключ с живым само-членством `MEMBER_OF` ([L0-4.3.1](concept/04_l0.md#l0-4.3.1)).
 
 <a id="glos-materialization"></a>
 
@@ -140,7 +144,7 @@
 
 <a id="glos-vouch-quorum"></a>
 
-- **Vouch-quorum** — $\lfloor |M|/2 \rfloor + 1$ живых `VOUCH` ([L0-4.3.4-a](concept/04_l0.md#l0-4.3.4-a)).
+- **Кворум подтверждений (member-of-quorum)** — $\lfloor |M|/2 \rfloor + 1$ живых `MEMBER_OF` от текущих членов ([L0-4.3.4-a](concept/04_l0.md#l0-4.3.4-a)).
 
 <a id="glos-cohesion"></a>
 
@@ -160,7 +164,7 @@
 
 <a id="glos-cap-30"></a>
 
-- **Cap-30** — отбор кандидатов: vouch count → $t_{sign}$ → pk ([L0-4.3.2](concept/04_l0.md#l0-4.3.2)).
+- **Cap-30** — отбор кандидатов: счёт подтверждений → $t_{sign}$ → pk ([L0-4.3.2](concept/04_l0.md#l0-4.3.2)).
 
 <a id="glos-freshness-tie-break"></a>
 
