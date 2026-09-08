@@ -96,10 +96,6 @@
 
 - **Mutual revoke** — revoke обоих направлений одной пары; не конфликтуют; обе стороны помечены ([LINK-3.2.3](concept/03_links.md#link-3.2.3)).
 
-<a id="glos-counter-revoke"></a>
-
-- **Counter-revoke** — свежая запись того же направления; замещает и отменяет mark подделки в любой момент ([LINK-3.2.5](concept/03_links.md#link-3.2.5)).
-
 <a id="glos-poison-mark"></a>
 
 - **Poison mark** — активна на $[t_b, \min(t_c+T_{life}, t_{relink}))$; ≤1 на пару-направление, ≤2 на пару ([LINK-3.2.4](concept/03_links.md#link-3.2.4)).
@@ -290,4 +286,4 @@
 
 <a id="glos-hijack-localization"></a>
 
-- **Hijack localization** — сжатие окон в $1+N$; чужие marks нестерираемы; counter-revoke против бэйдейтинга ([DEF-7.3](concept/07_defenses.md#def-7.3)).
+- **Hijack localization** — сжатие окон в $1+N$; чужие marks нестерираемы; против подделки задним числом — `KEY_LOSS` ([DEF-7.3](concept/07_defenses.md#def-7.3), [ARCH-2.3.2](concept/02_architecture.md#arch-2.3.2)).

@@ -78,7 +78,7 @@
 
 <a id="prin-1.3.3-c"></a>
 
-- *Backdating containment:* поддельный revoke живёт до момента counter-revoke; свежая подпись жертвы всегда сильнее ([LINK-3.2](03_links.md#link-3.2)).
+- *Backdating containment:* подделку задним числом устраняет `KEY_LOSS` — смерть ключа гасит все его записи, включая поддельные; без `KEY_LOSS` подделка необратима (принятая цена) ([LINK-3.2](03_links.md#link-3.2), [ARCH-2.3.2](02_architecture.md#arch-2.3.2)).
 
 <a id="prin-1.3.3-d"></a>
 
