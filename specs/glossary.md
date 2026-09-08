@@ -2,6 +2,10 @@
 
 <a id="glos-13"></a>
 
+<a id="glos-notation"></a>
+
+- **Нотация** — **G** — любая группа; **L0** — группа 0 уровня (базовая); **GH** — группа уровня выше L0 (иерархическое сообщество), идентификатор $ID_{GH}$; **P** — подписант записи; **X** — любой ключ; **O** (other) — любой ключ, кроме подписанта; служебные: $S$ — bootstrap-множество, $H(\cdot)$ — функция хеширования (не путать с GH) ([ARCH-2.1](concept/02_architecture.md#arch-2.1), [FMT-2.8](implementation/01_records_formats.md#fmt-2.8)).
+
 **Records**
 
 <a id="glos-consent-object"></a>
